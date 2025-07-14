@@ -2,26 +2,26 @@ import express from 'express';
 import multer from 'multer';
 const router = express.Router();
 
-// use for upload the image, video and more...
-
+// Configure multer for storing files in public/images
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "public/images");
     },
     filename: (req, file, cb) => {
-        cb(null, req.body.name);
+        cb(null, req.body.name); // Name sent from frontend
     },
 });
+
 const upload = multer({ storage: storage });
 
-
-router.post('/', upload.single("file", (req, res) => {
+// POST /upload route
+router.post('/', upload.single("file"), (req, res) => {
     try {
-        res.send(200).json("File Upload Successfully");
+        return res.status(200).json("File uploaded successfully");
     } catch (error) {
-        console.log(error);
+        console.error(error);
+        return res.status(500).json("File upload failed");
     }
-}))
-
+});
 
 export default router;

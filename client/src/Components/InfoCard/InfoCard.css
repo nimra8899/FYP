@@ -1,26 +1,96 @@
-.InfoCard{
+.InfoCard {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    background-color: var(--cardColor);
-    padding: 1rem;
+    gap: 1rem;
+    background: linear-gradient(145deg, #15203d, #1a2845);
+    padding: 1.5rem;
     border-radius: 1rem;
     width: 90%;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(80, 102, 144, 0.3);
+    color: #e2e8f0;
 }
 
-.infoHead{
+.infoHead {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 0.5rem;
 }
 
-.infoHead > div:hover{
+.infoHead h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #f8fafc;
+    margin: 0;
+}
+
+.infoHead > div {
+    color: #94a3b8;
+    background: rgba(30, 41, 59, 0.5);
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: grid;
+    place-items: center;
+}
+
+.infoHead > div:hover {
+    background: rgba(91, 139, 244, 0.2);
+    color: #60a5fa;
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(80, 102, 144, 0.2);
+}
+
+.info:last-child {
+    border-bottom: none;
+}
+
+.info span:first-child {
+    font-weight: 500;
+    color: #94a3b8;
+}
+
+.info span:last-child {
+    font-weight: 400;
+    color: #f8fafc;
+    text-align: right;
+    max-width: 60%;
+    word-break: break-word;
+}
+
+.logout-button {
+    width: 8rem;
+    height: 2.5rem;
+    margin-top: 2rem;
+    align-self: flex-end;
+    background: linear-gradient(135deg, #5b8bf4, #7986f7);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(91, 139, 244, 0.3);
+}
+
+.logout-button:hover {
+    background: linear-gradient(135deg, #4a7ef2, #6875f5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(91, 139, 244, 0.4);
     cursor: pointer;
 }
-
-.logout-button{
-    width: 7rem;
-    height: 2rem;
-    margin-top: 6rem;
-    align-self: flex-end;
+.info span:last-child {
+  font-weight: 400;
+  color: #f8fafc;
+  text-align: right;
+  max-width: 60%;
+  word-break: break-word;
+  line-height: 1.4;
 }

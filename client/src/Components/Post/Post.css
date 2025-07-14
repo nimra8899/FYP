@@ -1,21 +1,46 @@
-.Post{
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    background-color: var(--cardColor);
-    border-radius: 1rem;
-    gap: 1rem;
+.Post {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  
+  border-radius: 1rem;
+  gap: 1rem;
 }
 
-.Post > img{
-    width: 100%;
-    max-height: 20rem;
-    object-fit: cover;
-    border-radius: 0.5rem;
+.Post > img {
+  width: 100%;
+  max-height: 20rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
 
-.postReact{
-   display: flex;
-   align-items: flex-start;
-   gap: 1.5rem;
+.postReact {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
 }
+
+.postReact img {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* White comment and not-liked like icons */
+.postReact img:not(.liked) {
+  filter: brightness(0) invert(1);
+}
+
+/* Hover effect for all icons */
+.postReact img:hover {
+  transform: scale(1.1);
+}
+
+/* Red liked icon */
+.postReact img.liked {
+  filter: none;
+  /* Optional glow or shadow */
+  /* drop-shadow: 0 0 6px rgba(255, 0, 0, 0.5); */
+}
+ 

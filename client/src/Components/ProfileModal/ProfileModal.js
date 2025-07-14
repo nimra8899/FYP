@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { uploadImage } from '../../actions/UploadAction';
 import { updateUser } from '../../actions/UserAction';
 
+import './ProfileModal.css';
 
 
 

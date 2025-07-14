@@ -18,6 +18,18 @@ export const TrendData = [
     {
         name: "Elon Musk",
         shares: 50,
+    },
+     {
+        name: "Cybercrimes",
+        shares: 30,
+    },
+     {
+        name: "Python",
+        shares: 50,
+    },
+     {
+        name: "Fraud",
+        shares: 100,
     }
 
 ]

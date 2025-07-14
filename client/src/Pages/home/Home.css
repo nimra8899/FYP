@@ -1,6 +1,26 @@
-.Home{
-    position: relative;
-    display: grid;
-    grid-template-columns: 18rem auto 20rem;   
-    gap: 1rem;
+.Home {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18rem auto 20rem;
+  gap: 1rem;
+  min-height: 100vh;
+  padding: 1rem;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  color: #e0e0e0; /* Light text for dark background */
+  box-sizing: border-box;
+}
+
+/* Optional: Add card-style panels inside grid */
+.Home > * {
+  background-color: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.Home > *:hover {
+  transform: translateY(-2px);
 }

@@ -7,87 +7,84 @@ import { useParams } from 'react-router-dom';
 import * as UserApi from '../../api/UserRequest.js';
 import { logOut } from '../../actions/AuthAction';
 
-
-
 const InfoCard = () => {
-
   const [modalOpened, setModalOpened] = useState(false);
   const dispatch = useDispatch();
-  const params = useParams();
-  const profileUserId = params.id;
-
+  const { id: profileUserId } = useParams();
   const [profileUser, setProfileUser] = useState({});
 
   const { user } = useSelector((state) => state.authReducer.authData);
-
 
   useEffect(() => {
     const fetchProfileUser = async () => {
       if (profileUserId === user._id) {
         setProfileUser(user);
-
       } else {
-        const profileUser = await UserApi.getUser(profileUserId)
-        setProfileUser(profileUser);
+        try {
+          const { data } = await UserApi.getUser(profileUserId);
+          setProfileUser(data);
+        } catch (error) {
+          console.error('Error fetching profile user:', error);
+        }
       }
-
-    }
+    };
 
     fetchProfileUser();
-  }, [user]);
-
-
+  }, [profileUserId, user]);
 
   const handleLogOut = () => {
     dispatch(logOut());
-  }
-
+  };
 
   return (
-    <div className='InfoCard'>
-
+    <div className="InfoCard">
       <div className="infoHead">
         <h4>Profile Info</h4>
-
-        {user._id === profileUserId ?
-
-          (<div>
-            <EditIcon width='2rem' height='1.2rem'
-              onClick={() => setModalOpened(true)} />
-
-            <ProfileModal modalOpened={modalOpened} setModalOpened={setModalOpened}
+        {user._id === profileUserId && (
+          <div>
+            <EditIcon
+              style={{ cursor: 'pointer' }}
+              width="2rem"
+              height="1.2rem"
+              onClick={() => setModalOpened(true)}
+            />
+            <ProfileModal
+              modalOpened={modalOpened}
+              setModalOpened={setModalOpened}
               data={user}
             />
-          </div>)
-          : (" ")
-        }
-
+          </div>
+        )}
       </div>
 
       <div className="info">
         <span>
-          <b>Status </b>
+          <b>Status: </b>
         </span>
-        <span>{profileUser.relationship}</span>
+        <span>{profileUser.relationship || 'N/A'}</span>
       </div>
 
       <div className="info">
         <span>
-          <b>Lives in </b>
+          <b>Lives in: </b>
         </span>
-        <span>{profileUser.livesin}</span>
+        <span>{profileUser.livesin || 'N/A'}</span>
       </div>
 
       <div className="info">
         <span>
-          <b>Works at </b>
+          <b>Works at: </b>
         </span>
-        <span>{profileUser.worksAt}</span>
+        <span>{profileUser.worksAt || 'N/A'}</span>
       </div>
 
-      <button className='button logout-button' onClick={handleLogOut}>Log Out</button>
+      {user._id === profileUserId && (
+        <button className="button logout-button" onClick={handleLogOut}>
+          Log Out
+        </button>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default InfoCard
+export default InfoCard;

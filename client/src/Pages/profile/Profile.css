@@ -1,12 +1,21 @@
-.Profile{
+.Profile {
     position: relative;
     display: grid;
     grid-template-columns: 18rem auto 20rem;
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 1.5rem;
+background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+    min-height: 100vh;
 }
 
-.ProfilePage-Center{
+.ProfilePage-Center {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
+    
+    border-radius: 1rem;
+    padding: 1.5rem;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(80, 102, 144, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }

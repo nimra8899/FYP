@@ -1,0 +1,30 @@
+/* .ShareModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #334155;
+}
+
+.ShareModalHeader h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin: 0;
+}
+
+.CloseBtn {
+  cursor: pointer;
+  color: #94a3b8;
+  transition: 0.2s ease;
+}
+
+.CloseBtn:hover {
+  color: #f87171;
+  transform: scale(1.1);
+}
+
+.ShareModalContent {
+  padding-top: 0.5rem;
+} */
