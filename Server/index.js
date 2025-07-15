@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'url' ;
 
 // Import routes
 import AuthRoute from './Routes/AuthRoute.js';
