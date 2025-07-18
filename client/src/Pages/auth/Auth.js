@@ -6,7 +6,7 @@ import { logIn, signUp } from '../../actions/AuthAction.js';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Auth = () => {
-  const [isSignUp, setIsSignUp] = useState(true);
+  const [isSignUp, setIsSignUp] = useState(false);
   const dispatch = useDispatch();
   const loading = useSelector((state) => state.authReducer.loading);
 
