@@ -5,7 +5,7 @@ import postPic3 from '../../Img/postPic3.jpg';
 export const PostsData = [
   {
     img: postPic1,
-    userId: { firstname: 'Ritika', lastname: 'Singh' },
+    userId: { firstname: 'Sara', lastname: 'Khan' },
     desc: "Happy New Year all friends 🤩🎉🎉! #2023",
     likes: 5000,
     liked: true
@@ -19,7 +19,7 @@ export const PostsData = [
   },
   {
     img: postPic3,
-    userId: { firstname: 'Raj', lastname: 'Patel' },
+    userId: { firstname: 'Ahmad', lastname: 'Malik' },
     desc: "Happy Birthday 🎂🎊🎉",
     likes: 1000,
     liked: false
