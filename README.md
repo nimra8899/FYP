@@ -47,7 +47,7 @@ This project is a full-stack social media web application 🌐 that has been dev
 
 ### **Home Page :** 
  
-![Home1](https://github.com/Faizan2911/Social-Media-Web-App-Mern-Stack-/assets/117813967/7ff2b394-b96d-4cba-8464-044ecda3076a)
+http://localhost:3000/home
 
 ![postShare](https://github.com/Faizan2911/Social-Media-Web-App-Mern-Stack-/assets/117813967/44eb4a60-a0fa-4d38-8991-a5dc405f2ee3)
 
