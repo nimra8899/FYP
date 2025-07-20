@@ -1,82 +1,24 @@
 .LogoSearch {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 10px 16px;
-  background: linear-gradient(135deg, #2a3648, #1a2438); /* Lighter blue-gray gradient */
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #2a3648, #1a2438);
   border-radius: 14px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  width: auto;
+  width: 100%;
   max-width: 700px;
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for depth */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Larger logo styling */
-.logo-container {
-  display: flex;
-  align-items: center;
-}
-
-.logo-img {
-  height: 60px;
+.logo-img-full {
+  height: 80px;
   width: auto;
   object-fit: contain;
   transition: transform 0.2s ease;
-  filter: brightness(1.1); /* Slightly brighter logo to match lighter bg */
+  filter: brightness(1.15);
 }
 
-.logo-img:hover {
+.logo-img-full:hover {
   transform: scale(1.05);
-}
-
-/* Search bar - adjusted for lighter background */
-.Search {
-  flex: 0 1 400px;
-  display: flex;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.1); /* More transparent background */
-  border-radius: 12px;
-  padding: 6px 12px;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-  min-width: 200px;
-  backdrop-filter: blur(2px); /* Subtle blur effect */
-}
-
-.Search:focus-within {
-  background-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 0 2px rgba(103, 116, 204, 0.3);
-}
-
-.Search > input {
-  flex: 1;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  font-size: 14px;
-  color: #f0f0f0; /* Brighter text for better contrast */
-  font-family: 'Segoe UI', sans-serif;
-  padding: 6px 0;
-}
-
-.Search > input::placeholder {
-  color: #b0b0b0; /* Lighter placeholder */
-}
-
-.s-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #6674cc, #b578ff);
-  border-radius: 8px;
-  padding: 6px;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.s-icon:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 8px rgba(181, 120, 255, 0.6);
 }

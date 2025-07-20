@@ -7,7 +7,9 @@ const ProfileCard = ({ location }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
   const posts = useSelector((state) => state.postReducer.posts);
   const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
-
+console.log('User in ProfileCard:', user)
+console.log('Posts in ProfileCard:', posts)
+console.log(posts.filter((post) => post.userId === user._id).length)
   return (
     <div className='ProfileCard'>
       <div className="ProfileImages">
@@ -54,7 +56,7 @@ const ProfileCard = ({ location }) => {
             <>
               <div className="vl"></div>
               <div className="follow">
-                <span>{posts.filter((post) => post.userId === user._id).length}</span>
+                <span>{posts.filter((post) => post.userId._id === user._id).length}</span>
                 <span>Posts</span>
               </div>
             </>

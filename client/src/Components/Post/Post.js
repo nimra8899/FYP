@@ -5,6 +5,8 @@ import Like from '../../Img/like.png'
 import Notlike from '../../Img/notlike.png'
 import { useSelector } from 'react-redux'
 import { likePost } from '../../api/PostRequest'
+import CommentModal from '../CommentModal/CommentModal'
+
 
 const Post = ({ data }) => {
   const { user } = useSelector((state) => state.authReducer.authData)
@@ -17,6 +19,11 @@ const Post = ({ data }) => {
 
   const [liked, setLiked] = useState(initialLiked)
   const [likes, setLikes] = useState(initialLikes)
+  const [showCommentModal, setShowCommentModal] = useState(false)
+
+const handleCommentClick = () => {
+  setShowCommentModal(true)
+}
 
   const handleLike = () => {
     setLiked((prev) => !prev)
@@ -24,23 +31,61 @@ const Post = ({ data }) => {
     liked ? setLikes((prev) => prev - 1) : setLikes((prev) => prev + 1)
   }
 
-  const handleCommentClick = () => {
-    console.log('Comment button clicked for post:', data._id)
-    // You can open a modal, redirect to comments page, or toggle a comment section
-  }
+  // const handleCommentClick = () => {
+
+  //   console.log('Comment button clicked for post:', data._id)
+  // }
+
+  const mediaBasePath = process.env.REACT_APP_PUBLIC_FOLDER || ''
 
   return (
     <div className="Post">
-      {data.image && (
-        <img
-          src={
-            data.image.startsWith('data:') || data.image.startsWith('blob:')
-              ? data.image
-              : process.env.REACT_APP_PUBLIC_FOLDER + data.image
-          }
-          alt="Post content"
-        />
-      )}
+       <div className="detail">
+        <span className="span-class">
+          <img className='avatar'
+            src={
+              data.userId?.profilePicture
+                ? mediaBasePath + data.userId.profilePicture
+                : mediaBasePath + 'defaultProfile.png'
+            }
+            alt="User"></img>
+          <b>
+            {data.userId?.firstname
+              ? `${data.userId.firstname} ${data.userId.lastname}`
+              : 'User'}
+          </b>
+        </span>
+        <span className="span-text">{data.desc}</span>
+      </div>
+      {/* Render Images */}
+      {Array.isArray(data.images) &&
+        data.images.map((imgSrc, index) => (
+          <img
+            key={`img-${index}`}
+            src={
+              imgSrc.startsWith('data:') || imgSrc.startsWith('blob:')
+                ? imgSrc
+                : mediaBasePath + imgSrc
+            }
+            alt={`post-img-${index}`}
+            className="post-media"
+          />
+        ))}
+
+      {/* Render Videos */}
+      {Array.isArray(data.videos) &&
+        data.videos.map((videoSrc, index) => (
+          <video autoPlay 
+            key={`video-${index}`}
+            src={
+              videoSrc.startsWith('data:') || videoSrc.startsWith('blob:')
+                ? videoSrc
+                : mediaBasePath + videoSrc
+            }
+            controls
+            className="post-media"
+          />
+        ))}
 
       <div className="postReact">
         <img
@@ -58,13 +103,12 @@ const Post = ({ data }) => {
       </div>
 
       <span className="likeCount">{likes} likes</span>
+      {showCommentModal && (
+  <CommentModal postId={data._id} onClose={() => setShowCommentModal(false)} />
+)}
 
-      <div className="detail">
-        <span>
-          <b>{data.name ?? 'User'}</b>
-        </span>
-        <span>{data.desc}</span>
-      </div>
+
+     
     </div>
   )
 }

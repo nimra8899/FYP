@@ -3,9 +3,10 @@ import mongoose from "mongoose";
 const postSchema = mongoose.Schema(
   {
     userId: { type: mongoose.Schema.Types.ObjectId, ref: "Users", required: true },
-    desc: String,
+      desc: { type: String, required: true },
     likes: [],
-    image: String,
+    images: [String],
+    videos: [String], 
   },
   {
     timestamps: true,

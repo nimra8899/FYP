@@ -23,9 +23,14 @@ const Posts = () => {
 
   // Filter by userId in params if needed
   const filteredPosts = params.id
-    ? finalPosts.filter((post) => post.userId === params.id)
-    : finalPosts
+  ? finalPosts.filter((post) =>
+      post.userId?._id
+        ? post.userId._id === params.id
+        : post.userId === params.id
+    )
+  : finalPosts;
 
+  console.log('Filtered Posts:', filteredPosts)
   return (
     <div className="Posts">
       {loading ? (

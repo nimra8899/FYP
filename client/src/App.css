@@ -60,4 +60,28 @@
 
 ::-webkit-scrollbar {
   display: none; 
-} */
+/* Custom dark blue scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  background: #1a2236;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #223366;
+  border-radius: 8px;
+  border: 2px solid #1a2236;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3355aa;
+}
+
+::-webkit-scrollbar-corner {
+  background: #1a2236;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #223366 #1a2236;
+}
